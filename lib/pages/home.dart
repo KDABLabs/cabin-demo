@@ -441,13 +441,43 @@ class _KdabLogo extends StatelessWidget {
           offset: Offset(active ? 0.0 : 1.0, 0.0),
           duration: slideDuration,
           curve: Curves.easeOutCubic,
-          child: const Opacity(
-            opacity: 0.9,
-            child: SubsetImage(
-              data: SubsetImages.logo,
-              width: 180,
-              height: 127,
-            ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              RichText(
+                text: TextSpan(
+                  children: const [
+                    TextSpan(
+                      text: 'Get in touch with KDAB here:\n',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    TextSpan(
+                      children: [
+                        WidgetSpan(child: SizedBox(width: 20)),
+                        TextSpan(text: 'https://kdab.com\n'),
+                        WidgetSpan(child: SizedBox(width: 20)),
+                        TextSpan(text: 'info@kdab.com'),
+                      ],
+                      style: TextStyle(
+                        color: Color(0xFF616161), // Colors.grey.shade700
+                      ),
+                    )
+                  ],
+                  style: DefaultTextStyle.of(context).style,
+                ),
+              ),
+              const Padding(padding: EdgeInsets.only(right: 24)),
+              const Opacity(
+                opacity: 0.9,
+                child: SubsetImage(
+                  data: SubsetImages.logo,
+                  width: 180,
+                  height: 127,
+                ),
+              ),
+            ],
           ),
         );
       },

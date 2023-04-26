@@ -145,43 +145,46 @@ class _CabinDemoMainPageState extends State<CabinDemoMainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
-      color: const Color.fromRGBO(66, 133, 245, 1),
-      child: Stack(
-        children: [
-          CabinAppPageView(
-            notifier: pageNotifier,
-            pageController: pageController,
-            children: [
-              HomePage(
-                cabinName: widget.cabinName,
-                pageController: pageController,
-                pageListenable: pageNotifier,
-              ),
-              const LightingPage(),
-              const ClimatePage(),
-              const MediaPage(),
-              const HousekeepingPage(),
-            ],
-          ),
-          Positioned(
-            left: 0,
-            right: 0,
-            top: 0,
-            child: TopRow(
-              cabinName: widget.cabinName,
-              pageListenable: pageNotifier,
+    return Scaffold(
+      appBar: null,
+      body: ColoredBox(
+        color: const Color.fromRGBO(66, 133, 245, 1),
+        child: Stack(
+          children: [
+            CabinAppPageView(
+              notifier: pageNotifier,
               pageController: pageController,
+              children: [
+                HomePage(
+                  cabinName: widget.cabinName,
+                  pageController: pageController,
+                  pageListenable: pageNotifier,
+                ),
+                const LightingPage(),
+                const ClimatePage(),
+                const MediaPage(),
+                const HousekeepingPage(),
+              ],
             ),
-          ),
-          if (widget.enableWindowSizeSwitcherIfPossible)
             Positioned(
               left: 0,
               right: 0,
-              bottom: 0,
-              child: buildWindowSizeSwitcher(),
-            )
-        ],
+              top: 0,
+              child: TopRow(
+                cabinName: widget.cabinName,
+                pageListenable: pageNotifier,
+                pageController: pageController,
+              ),
+            ),
+            if (widget.enableWindowSizeSwitcherIfPossible)
+              Positioned(
+                left: 0,
+                right: 0,
+                bottom: 0,
+                child: buildWindowSizeSwitcher(),
+              )
+          ],
+        ),
       ),
     );
   }
