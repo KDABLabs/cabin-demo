@@ -179,14 +179,14 @@ class SubsetImages {
 
   static const logo = SubsetImageData(
     asset: 'assets/images/subset/logo.png',
-    original: Rect.fromLTRB(0.0, 0.0, 180, 127),
-    cropped: Rect.fromLTRB(0.0, 0.0, 180.0, 127.0),
+    original: Rect.fromLTRB(0.0, 0.0, 913, 661),
+    cropped: Rect.fromLTRB(0.0, 0.0, 750.0, 661.0),
     align: Alignment(
-      0.0,
+      2 * 0.0 / (913 - 750.0) - 1,
       0.0,
     ),
-    widthFactor: 180.0 / 180,
-    heightFactor: 127.0 / 127,
+    widthFactor: 750.0 / 913,
+    heightFactor: 661.0 / 661,
   );
 
   static const lightmod1Icon = SubsetImageData(

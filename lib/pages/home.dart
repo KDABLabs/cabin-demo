@@ -47,7 +47,7 @@ class TopRow extends StatelessWidget {
                   notifier: pageListenable as ValueNotifier<double>,
                   pageController: pageController,
                 ),
-                _KdabLogo(pageListenable: pageListenable),
+                _KdabBranding(pageListenable: pageListenable),
               ],
             ),
           ),
@@ -420,8 +420,8 @@ class _PageIcons extends StatelessWidget {
   }
 }
 
-class _KdabLogo extends StatelessWidget {
-  const _KdabLogo({
+class _KdabBranding extends StatelessWidget {
+  const _KdabBranding({
     // ignore: unused_element
     super.key,
     required this.pageListenable,
@@ -469,18 +469,48 @@ class _KdabLogo extends StatelessWidget {
                 ),
               ),
               const Padding(padding: EdgeInsets.only(right: 24)),
-              const Opacity(
-                opacity: 0.9,
-                child: SubsetImage(
-                  data: SubsetImages.logo,
-                  width: 180,
-                  height: 127,
-                ),
-              ),
+              const _KdabLogo(),
             ],
           ),
         );
       },
+    );
+  }
+}
+
+class _KdabLogo extends StatelessWidget {
+  const _KdabLogo({
+    // ignore: unused_element
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: const [
+        Opacity(
+          opacity: 0.9,
+          child: SubsetImage(
+            data: SubsetImages.logo,
+            width: 180,
+            height: 127,
+          ),
+        ),
+        Positioned(
+          top: 90,
+          left: 43,
+          child: Text(
+            'Trusted Software Excellence',
+            style: TextStyle(
+              fontFamily: 'OpenSans',
+              fontStyle: FontStyle.italic,
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
+              fontSize: 11.1,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

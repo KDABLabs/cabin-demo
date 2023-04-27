@@ -115,3 +115,9 @@ flutter:
         - asset: assets/fonts/Roboto-BlackItalic.ttf
           weight: 900
           style: italic
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/OpenSans-Italic-VariableFont_wdth,wght.ttf
+          style: italic
+
+        - asset: assets/fonts/OpenSans-VariableFont_wdth,wght.ttf
